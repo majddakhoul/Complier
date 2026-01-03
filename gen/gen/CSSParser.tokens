@@ -1,0 +1,15 @@
+LBRACE=1
+RBRACE=2
+COLON=3
+SEMI=4
+DOT=5
+HASH=6
+ID=7
+COLOR=8
+WS=9
+'{'=1
+'}'=2
+':'=3
+';'=4
+'.'=5
+'#'=6
