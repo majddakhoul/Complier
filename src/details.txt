@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h2>{{ p.name }}</h2>
+<img src="{{ url_for('static', filename='images/' + p.image) }}" width="250">
+<p>Price: {{ p.price }} $</p>
+<p>{{ p.details }}</p>
+
+<a href="/">⬅ Back to products</a>

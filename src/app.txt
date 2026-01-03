@@ -1,0 +1,33 @@
+from flask import Flask, render_template, request, redirect, url_for
+import os
+
+app = Flask(__name__)
+app.config["UPLOAD_FOLDER"] = "static/images"
+
+products = []
+
+@app.route("/")
+def show_products():
+    return render_template("products.html", products=products)
+
+@app.route("/add", methods=["GET", "POST"])
+def add_product():
+    if request.method == "POST":
+        img = request.files["image"]
+        img_path = os.path.join(app.config["UPLOAD_FOLDER"], img.filename)
+        img.save(img_path)
+
+        products.append({
+            "name": request.form["name"],
+            "price": request.form["price"],
+            "details": request.form["details"],
+            "image": img.filename
+        })
+        return redirect(url_for("show_products"))
+    return render_template("add.html")
+
+@app.route("/product/<int:id>")
+def product_details(id):
+    return render_template("details.html", p=products[id])
+
+app.run(debug=True)
