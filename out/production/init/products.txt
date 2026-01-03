@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h2>Products</h2>
+<a href="/add">Add Product</a>
+<hr>
+
+{% for p in products %}
+<div class="card">
+  <a href="/product/{{ loop.index0 }}">
+    <img src="{{ url_for('static', filename='images/' + p.image) }}" width="120">
+    <h3>{{ p.name }}</h3>
+  </a>
+  <p>{{ p.price }} $</p>
+</div>
+{% endfor %}

@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h2>Add Product</h2>
+<form method="post" enctype="multipart/form-data">
+  Image: <input type="file" name="image" required><br><br>
+  Name: <input name="name"><br><br>
+  Price: <input name="price"><br><br>
+  Details: <input name="details"><br><br>
+  <button>Add</button>
+</form>
